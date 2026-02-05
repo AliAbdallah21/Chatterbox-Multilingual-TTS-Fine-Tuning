@@ -3,11 +3,11 @@ from typing import Tuple
 
 @dataclass
 class FinetuneConfig:
-    data_dir: str = "C:\\Users\\11\\chatterbox-finetuning\\MyTTSDataset_Dahih_114h"
-    output_dir: str = "./output_dahih_egyptian_partial"
+    data_dir: str = "C:\\Users\\11\\chatterbox-finetuning\\output_dir"
+    output_dir: str = "./output_data_egyptian_partial"
     
     # ✅ RESUME SUPPORT - Set this to resume training!
-    # resume_from_checkpoint: str = "./output_dahih_egyptian_partial/checkpoint-2000"
+    # resume_from_checkpoint: str = "./output_data_egyptian_partial/checkpoint-2000"
     
     device: str = "cuda"
     language_id: str = "ar"

@@ -23,16 +23,16 @@ This project demonstrates the **first successful public fine-tuning** of the Cha
 
 Listen to the results:
 - [Sample 1](samples/sample_01.wav) - *"الكتاب ده عبارة عن حكايات على القهوة"*
-- [Sample 2](samples/sample_02.wav) - *"مرحبا كيف حالك اليوم"*
-- [Sample 3](samples/sample_06.wav) - *"ازيك يا باشا عامل ايه"*
+- [Sample 2](samples/sample_02.wav) - *"انا بحب مصر جدا"*
+- [Sample 3](samples/sample_06.wav) - *"اللغة العربية لغة جميلة وغنية بالتاريخ و الثقافة والادب و الحضارة العريقة زي الجمال بتاعها"*
 
 ## 📊 Dataset
 
-- **Source**: الدحيح (Al-Daheeh) educational videos
+- **Source**:online educational videos
 - **Total Duration**: 120 hours of clean Egyptian Arabic
 - **Samples**: 43,711 audio segments
 - **Quality**: Filtered for English content, validated for audio quality
-- **Speaker**: Single speaker (الدحيح)
+- **Speaker**: Single speaker
 
 ### Data Preparation Pipeline
 
@@ -83,13 +83,13 @@ Result: 99.53% of T3 parameters trainable (strategically selected)
 ### Prerequisites
 
 **Hardware Requirements:**
-- NVIDIA GPU with 24GB+ VRAM (RTX 3090/4090 or better)
+- NVIDIA GPU with 16GB+ VRAM (RTX 3090/4060Ti or better)
 - 100GB+ free disk space
 - CUDA 11.8+ and cuDNN
 
 **Software Requirements:**
 - Anaconda or Miniconda
-- Python 3.10+
+- Python 3.11+
 - Git
 
 ### Installation
@@ -155,15 +155,15 @@ Run the preparation script:
 ```bash
 # Edit prepare_dahih_114h.py to set your SOURCE_DIR
 # Then run:
-python prepare_dahih_114h.py
+python prepare_data.py
 ```
 
 This creates:
 ```
-MyTTSDataset_Dahih_114h/
+output_dir/
 ├── wavs/
-│   ├── dahih_000001.wav
-│   ├── dahih_000002.wav
+│   ├── audio_000001.wav
+│   ├── audio_000002.wav
 │   └── ...
 ├── metadata.csv          # filename|text format
 └── metadata_full.csv     # Full metadata with durations
@@ -191,8 +191,8 @@ Edit `config.py`:
 @dataclass
 class FinetuneConfig:
     # Update this path to your prepared dataset
-    data_dir: str = "C:\\path\\to\\MyTTSDataset_Dahih_114h"
-    output_dir: str = "./output_dahih_egyptian_partial"
+    data_dir: str = "C:\\path\\to\\prepared_dataset"
+    output_dir: str = "./output_data_egyptian_partial"
     
     # Training settings (recommended)
     num_epochs: int = 3
@@ -258,7 +258,7 @@ To resume from a checkpoint:
 
 ```python
 # In config.py, add:
-resume_from_checkpoint: str = "./output_dahih_egyptian_partial/checkpoint-2000"
+resume_from_checkpoint: str = "./output_data_egyptian_partial/checkpoint-2000"
 ```
 
 Then run `python train.py` again.
@@ -297,7 +297,6 @@ Final (epoch 2): ~4.0
 
 | Aspect | LoRA (Previous) | Partial Fine-Tune (This Work) |
 |--------|----------------|------------------------------|
-| **Voice** | الدحيح ✅ | الدحيح ✅ |
 | **Egyptian ق** | ❌ Sounds like MSA | ✅ Perfect ء sound |
 | **Egyptian ج** | ❌ Sounds like MSA | ✅ Perfect g sound |
 | **Rhythm** | ❌ Formal/MSA-like | ✅ Natural Egyptian |
@@ -350,7 +349,7 @@ egyptian-finetune/
 ├── config.py                    # Training configuration
 ├── train.py                     # Main training script with partial fine-tuning
 ├── dataset.py                   # PyTorch dataset loader
-├── prepare_dahih_114h.py        # Dataset preparation and filtering
+├── prepare_data.py              # Dataset preparation and filtering
 ├── quick_partial_test.py        # Inference testing script
 ├── requirements.txt             # Python dependencies
 ├── samples/                     # Audio samples (for demonstration)
@@ -426,7 +425,6 @@ This project follows the Chatterbox model license. Please refer to the [Chatterb
 ## 🙏 Acknowledgments
 
 - **Chatterbox Team** for developing the exceptional multilingual TTS architecture
-- **الدحيح (Ahmad Al-Ghandour)** for creating educational content that enabled this research
 - **Egyptian Arabic NLP Community** for inspiration and support
 - **Open source community** for tools and frameworks (PyTorch, Hugging Face, etc.)
 
@@ -483,8 +481,9 @@ batch_size: int = 1  # Instead of 2
 - **GitHub**: [@AliAbdallah21](https://github.com/AliAbdallah21)
 - **Repository**: [Chatterbox-Multilingual-TTS-Fine-Tuning](https://github.com/AliAbdallah21/Chatterbox-Multilingual-TTS-Fine-Tuning)
 - **Issues**: [Report bugs or request features](https://github.com/AliAbdallah21/Chatterbox-Multilingual-TTS-Fine-Tuning/issues)
+- **Email**: [E-mail](aliabdalla2110@gmail.com)
 
-For collaboration or commercial inquiries, please open an issue or reach out via GitHub.
+For collaboration or commercial inquiries, please open an issue or reach out via GitHub or Email.
 
 ## 🌟 Star History
 

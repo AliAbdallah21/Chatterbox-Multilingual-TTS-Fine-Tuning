@@ -18,8 +18,8 @@ import re
 # CONFIGURATION
 # ============================================================================
 
-SOURCE_DIR = r"C:\TTS DATA\da7e7"
-OUTPUT_DIR = r"C:\Users\11\chatterbox-finetuning\MyTTSDataset_Dahih_114h"
+SOURCE_DIR = r"path to the source directory containing playlists"
+OUTPUT_DIR = r"path to the output cleaned dataset directory"
 
 # Audio quality thresholds
 MIN_DURATION = 1.0  # seconds

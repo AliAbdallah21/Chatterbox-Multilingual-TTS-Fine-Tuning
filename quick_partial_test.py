@@ -29,7 +29,7 @@ TEST_TEXTS = [
 REFERENCE_AUDIO = r"C:\Users\11\Documents\audio.wav"
 
 # Output directory
-OUTPUT_DIR = "./output_dahih_egyptian_partial"
+OUTPUT_DIR = "./output_data_egyptian_partial"
 
 
 # =========================================================================
