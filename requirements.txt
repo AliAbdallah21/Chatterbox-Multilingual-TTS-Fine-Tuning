@@ -1,0 +1,9 @@
+torch>=2.0.0
+torchaudio>=2.0.0
+transformers>=4.30.0
+peft>=0.4.0
+safetensors>=0.3.0
+soundfile>=0.12.0
+librosa>=0.10.0
+pandas>=2.0.0
+tqdm>=4.65.0

@@ -1,0 +1,37 @@
+# Save this as .gitignore
+# Large model files
+output_*/
+test_outputs/
+*.safetensors
+*.pt
+*.pth
+*.ckpt
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+.pytest_cache/
+
+# Data
+*.csv
+wavs/
+MyTTSDataset*/
+
+# Checkpoints
+checkpoint-*/
+epoch_*/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Keep samples folder
+!samples/*.wav
